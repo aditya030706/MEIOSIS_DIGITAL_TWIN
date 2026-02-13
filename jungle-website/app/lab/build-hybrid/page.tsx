@@ -58,20 +58,20 @@ export default function BuildHybrid() {
   }
 
   return (
-    <main className="min-h-screen bg-[#F7F4D5] text-[#0A3323] font-inter pb-20 relative z-[200]">
-      {/* Workspace Header */}
-      <header className="bg-[#105666] border-b border-[#0A3323]/20 px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
+    <main className="min-h-screen bg-[#EDE4C2] text-[#254F22] font-inter pb-20 relative z-[200]">
+      {/* Workspace Header - Uses #254F22 (Deep Green) */}
+      <header className="bg-[#254F22] border-b border-black/10 px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-lg">
         <div className="flex items-center gap-4">
-          <Link href="/lab" className="group flex items-center gap-2 text-[#F7F4D5]/70 hover:text-[#F7F4D5] transition-all text-xs uppercase tracking-widest font-bold">
+          <Link href="/lab" className="group flex items-center gap-2 text-[#EDE4C2]/70 hover:text-[#EDE4C2] transition-all text-xs uppercase tracking-widest font-bold">
             <span className="text-lg">←</span> EXIT SUITE
           </Link>
-          <div className="h-4 w-px bg-white/20" />
-          <h1 className="font-bold text-sm tracking-[0.2em] text-[#F7F4D5] uppercase">NISARG | BREEDING SUITE</h1>
+          <div className="h-4 w-px bg-[#EDE4C2]/20" />
+          <h1 className="font-bold text-sm tracking-[0.2em] text-[#EDE4C2] uppercase">NISARG | BREEDING SUITE</h1>
         </div>
         {showResults && (
           <button 
             onClick={downloadCSV}
-            className="px-6 py-2 bg-[#839958] text-[#F7F4D5] text-[10px] font-bold rounded-sm hover:bg-[#0A3323] transition-all uppercase tracking-widest flex items-center gap-2 shadow-sm"
+            className="px-6 py-2 bg-[#F5824A] text-[#EDE4C2] text-[10px] font-bold rounded-sm hover:bg-[#A03A13] transition-all uppercase tracking-widest flex items-center gap-2 shadow-sm"
           >
             <span>↓</span> Export Analysis (.CSV)
           </button>
@@ -82,19 +82,19 @@ export default function BuildHybrid() {
         
         {/* Input Section */}
         <section className="lg:col-span-4">
-          <div className="bg-white/40 backdrop-blur-sm p-8 rounded-sm border border-[#105666]/10 shadow-sm sticky top-24">
-            <h2 className="text-[#105666] text-[10px] font-bold uppercase tracking-[0.3em] mb-8 border-b border-[#D3968C]/20 pb-4">Genetic Input</h2>
+          <div className="bg-white/40 backdrop-blur-sm p-8 rounded-sm border border-[#254F22]/10 shadow-sm sticky top-24">
+            <h2 className="text-[#A03A13] text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b border-[#F5824A]/20 pb-4">Genetic Selection</h2>
             <div className="space-y-8">
               <div>
-                <label className="block text-[10px] font-bold text-[#105666]/60 uppercase mb-3 tracking-widest">Parent A (Female Line)</label>
-                <select value={parent1} onChange={(e) => setParent1(e.target.value)} className="w-full p-4 bg-[#F7F4D5]/50 border border-[#105666]/20 rounded-sm text-sm outline-none focus:border-[#839958] transition-colors appearance-none text-[#0A3323]">
+                <label className="block text-[10px] font-bold text-[#254F22]/60 uppercase mb-3 tracking-widest">Parent A (Female Line)</label>
+                <select value={parent1} onChange={(e) => setParent1(e.target.value)} className="w-full p-4 bg-[#EDE4C2]/30 border border-[#254F22]/20 rounded-sm text-sm outline-none focus:border-[#F5824A] transition-colors appearance-none text-[#254F22] font-medium">
                   <option value="">Select Seed Variety...</option>
                   {parentAVarieties.map(name => <option key={name} value={name}>{name}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-[10px] font-bold text-[#105666]/60 uppercase mb-3 tracking-widest">Parent B (Male Line)</label>
-                <select value={parent2} onChange={(e) => setParent2(e.target.value)} className="w-full p-4 bg-[#F7F4D5]/50 border border-[#105666]/20 rounded-sm text-sm outline-none focus:border-[#839958] transition-colors appearance-none text-[#0A3323]">
+                <label className="block text-[10px] font-bold text-[#254F22]/60 uppercase mb-3 tracking-widest">Parent B (Male Line)</label>
+                <select value={parent2} onChange={(e) => setParent2(e.target.value)} className="w-full p-4 bg-[#EDE4C2]/30 border border-[#254F22]/20 rounded-sm text-sm outline-none focus:border-[#F5824A] transition-colors appearance-none text-[#254F22] font-medium">
                   <option value="">Select Seed Variety...</option>
                   {parentBVarieties.map(name => <option key={name} value={name}>{name}</option>)}
                 </select>
@@ -103,7 +103,7 @@ export default function BuildHybrid() {
             <button 
               onClick={handleGenerate}
               disabled={isGenerating}
-              className={`w-full py-5 bg-[#0A3323] text-[#F7F4D5] font-bold rounded-sm uppercase text-[10px] tracking-[0.3em] mt-12 transition-all shadow-lg ${isGenerating ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#105666] shadow-emerald-900/20'}`}
+              className={`w-full py-5 bg-[#254F22] text-[#EDE4C2] font-bold rounded-sm uppercase text-[10px] tracking-[0.3em] mt-12 transition-all shadow-lg ${isGenerating ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#A03A13] shadow-orange-900/20'}`}
             >
               {isGenerating ? 'Analyzing Trait Expressivity...' : 'Generate Hybrid Profile'}
             </button>
@@ -112,19 +112,19 @@ export default function BuildHybrid() {
 
         {/* Results Section */}
         <section className="lg:col-span-8">
-          <div className="bg-white/60 p-10 rounded-sm border border-[#105666]/10 shadow-sm min-h-[700px] relative overflow-hidden">
+          <div className="bg-white/60 p-10 rounded-sm border border-[#254F22]/10 shadow-sm min-h-[700px] relative overflow-hidden">
             
             {!showResults && !isGenerating && (
               <div className="h-full flex flex-col items-center justify-center py-48 text-center">
-                <div className="w-20 h-20 border border-dashed border-[#D3968C] rounded-full mb-8 flex items-center justify-center text-[#D3968C] text-2xl">⬢</div>
-                <p className="text-[#105666] font-light italic tracking-widest uppercase text-xs">Awaiting Genetic Parameters</p>
+                <div className="w-20 h-20 border border-dashed border-[#F5824A] rounded-full mb-8 flex items-center justify-center text-[#F5824A] text-2xl">⬢</div>
+                <p className="text-[#A03A13] font-bold italic tracking-widest uppercase text-xs opacity-60">Awaiting Genetic Parameters</p>
               </div>
             )}
 
             {isGenerating && (
-              <div className="h-full flex flex-col items-center justify-center py-48 text-[#839958]">
-                <div className="w-16 h-16 border-4 border-[#F7F4D5] border-t-[#839958] rounded-full animate-spin mb-8" />
-                <p className="font-bold uppercase text-[10px] tracking-[0.5em] animate-pulse">NISARG ML-Engine Active</p>
+              <div className="h-full flex flex-col items-center justify-center py-48 text-[#A03A13]">
+                <div className="w-16 h-16 border-4 border-[#EDE4C2] border-t-[#A03A13] rounded-full animate-spin mb-8" />
+                <p className="font-black uppercase text-[10px] tracking-[0.5em] animate-pulse">NISARG Engine Processing</p>
               </div>
             )}
 
@@ -132,44 +132,44 @@ export default function BuildHybrid() {
               <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000">
                 <header className="flex justify-between items-start mb-16">
                   <div>
-                    <span className="text-[10px] font-bold text-[#839958] uppercase tracking-[0.4em] mb-2 block">Prospective Configuration</span>
-                    <h3 className="text-4xl font-bold text-[#0A3323] tracking-tighter">{parent1} <span className="text-[#D3968C] font-light italic">×</span> {parent2}</h3>
+                    <span className="text-[10px] font-black text-[#A03A13] uppercase tracking-[0.4em] mb-2 block">Experimental Configuration</span>
+                    <h3 className="text-4xl font-bold text-[#254F22] tracking-tighter">{parent1} <span className="text-[#F5824A] font-light italic">×</span> {parent2}</h3>
                   </div>
                   <div className="flex flex-col items-end gap-2">
-                    <span className="px-4 py-1.5 bg-[#839958]/10 text-[#839958] text-[9px] font-bold rounded-sm uppercase tracking-widest border border-[#839958]/30">Stability: Optimal</span>
+                    <span className="px-4 py-1.5 bg-[#A03A13] text-[#EDE4C2] text-[9px] font-bold rounded-sm uppercase tracking-widest border border-[#A03A13]">Stability: Optimal</span>
                   </div>
                 </header>
 
                 <div className="grid grid-cols-2 gap-8 mb-16">
-                  <div className="p-8 bg-[#F7F4D5] rounded-sm border border-[#105666]/10 hover:border-[#839958]/40 transition-colors">
-                    <span className="text-[10px] font-bold text-[#839958] uppercase tracking-[0.2em]">Predicted Yield Potential</span>
-                    <div className="text-5xl font-bold text-[#0A3323] mt-4 tracking-tighter">7.4 <span className="text-xs font-normal text-[#105666] uppercase">t/ha</span></div>
-                    <p className="text-[9px] text-[#839958] mt-3 font-bold uppercase tracking-widest">↑ 14.2% yield increase</p>
+                  <div className="p-8 bg-[#EDE4C2] rounded-sm border border-[#254F22]/10 hover:border-[#F5824A]/40 transition-colors">
+                    <span className="text-[10px] font-black text-[#A03A13] uppercase tracking-[0.2em]">Predicted Yield Potential</span>
+                    <div className="text-5xl font-bold text-[#254F22] mt-4 tracking-tighter">7.4 <span className="text-xs font-normal text-[#A03A13] uppercase">t/ha</span></div>
+                    <p className="text-[9px] text-[#A03A13] mt-3 font-bold uppercase tracking-widest italic">↑ Elite Performance</p>
                   </div>
-                  <div className="p-8 bg-[#F7F4D5] rounded-sm border border-[#105666]/10 hover:border-[#839958]/40 transition-colors">
-                    <span className="text-[10px] font-bold text-[#D3968C] uppercase tracking-[0.2em]">Anticipated Maturity</span>
-                    <div className="text-5xl font-bold text-[#0A3323] mt-4 tracking-tighter">128 <span className="text-xs font-normal text-[#105666] uppercase">Days</span></div>
-                    <p className="text-[9px] text-[#D3968C] mt-3 font-bold uppercase tracking-widest">Mid-Duration Cycle</p>
+                  <div className="p-8 bg-[#EDE4C2] rounded-sm border border-[#254F22]/10 hover:border-[#F5824A]/40 transition-colors">
+                    <span className="text-[10px] font-black text-[#F5824A] uppercase tracking-[0.2em]">Anticipated Maturity</span>
+                    <div className="text-5xl font-bold text-[#254F22] mt-4 tracking-tighter">128 <span className="text-xs font-normal text-[#A03A13] uppercase">Days</span></div>
+                    <p className="text-[9px] text-[#F5824A] mt-3 font-bold uppercase tracking-widest italic">Mid-Duration Cycle</p>
                   </div>
                 </div>
 
                 <div className="space-y-12">
                   <div className="flex items-center gap-4">
-                    <h4 className="text-[10px] font-bold text-[#105666] uppercase tracking-[0.4em]">Resilience Profile</h4>
-                    <div className="h-px flex-1 bg-[#105666] opacity-10" />
+                    <h4 className="text-[10px] font-black text-[#A03A13] uppercase tracking-[0.4em]">Resilience Profile</h4>
+                    <div className="h-px flex-1 bg-[#254F22] opacity-10" />
                   </div>
                   <div className="grid grid-cols-2 gap-x-16 gap-y-12">
                     {[
-                      { l: 'Heat Tolerance', v: '82%', c: 'bg-[#D3968C]' },
-                      { l: 'Flood Tolerance', v: '91%', c: 'bg-[#105666]' },
-                      { l: 'Drought Resilience', v: '65%', c: 'bg-[#839958]' },
-                      { l: 'Blast Resistance', v: '78%', c: 'bg-[#0A3323]' }
+                      { l: 'Heat Tolerance', v: '82%', c: 'bg-[#A03A13]' },
+                      { l: 'Flood Tolerance', v: '91%', c: 'bg-[#254F22]' },
+                      { l: 'Drought Resilience', v: '65%', c: 'bg-[#F5824A]' },
+                      { l: 'Blast Resistance', v: '78%', c: 'bg-black' }
                     ].map((t) => (
                       <div key={t.l}>
-                        <div className="flex justify-between text-[10px] font-bold mb-4 tracking-widest uppercase text-[#105666]">
+                        <div className="flex justify-between text-[10px] font-black mb-4 tracking-widest uppercase text-[#254F22]">
                           <span>{t.l}</span><span>{t.v}</span>
                         </div>
-                        <div className="h-1.5 w-full bg-[#F7F4D5] rounded-full overflow-hidden border border-[#105666]/5">
+                        <div className="h-2 w-full bg-[#EDE4C2] rounded-sm overflow-hidden border border-black/5">
                           <div className={`h-full ${t.c} transition-all duration-1000`} style={{ width: t.v }} />
                         </div>
                       </div>
@@ -177,12 +177,12 @@ export default function BuildHybrid() {
                   </div>
                 </div>
 
-                {/* Navigation to Digital Twin */}
-                <div className="mt-20 pt-10 border-t border-[#105666]/10 flex flex-col items-center space-y-6">
-                   <p className="text-[10px] text-[#105666] uppercase tracking-widest font-light italic">Ready to observe growth vulnerability?</p>
+                {/* Navigation to Digital Twin using #A03A13 */}
+                <div className="mt-20 pt-10 border-t border-[#254F22]/10 flex flex-col items-center space-y-6">
+                   <p className="text-[10px] text-[#254F22]/60 uppercase tracking-widest font-bold italic">Ready to observe growth vulnerability?</p>
                    <button 
                     onClick={() => router.push('/lab/digital-twin')}
-                    className="px-12 py-5 bg-[#105666] text-[#F7F4D5] text-[10px] font-bold rounded-sm hover:bg-[#0A3323] transition-all uppercase tracking-[0.4em] shadow-xl"
+                    className="px-12 py-5 bg-[#A03A13] text-[#EDE4C2] text-[10px] font-black rounded-sm hover:bg-[#254F22] transition-all uppercase tracking-[0.4em] shadow-xl"
                    >
                      Initialize Digital Twin Simulation
                    </button>
