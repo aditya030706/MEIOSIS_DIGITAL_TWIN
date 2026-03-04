@@ -1,15 +1,22 @@
+import dynamic from 'next/dynamic'
 import JungleHero from '@/components/JungleHero'
 import Link from 'next/link'
+
+const PlantBackground = dynamic(() => import('@/components/PlantBackground'), {
+  ssr: false
+})
 
 export default function Home() {
   return (
     <>
-      {/* This component likely contains the big scrolling text */}
       <JungleHero />
       
       {/* Welcome Section */}
-      <section className="relative bg-forest-deep py-32 px-6">
-        <div className="container mx-auto max-w-4xl text-center space-y-8">
+      <section className="relative overflow-hidden bg-forest-deep py-32 px-6 min-h-screen">
+
+        <PlantBackground />
+
+        <div className="container mx-auto max-w-4xl text-center space-y-8 relative z-10">
           <h2 className="text-5xl md:text-7xl font-bold text-off-white tracking-tight">
             Welcome to Project <span className="text-sage-light">NISARG</span>
           </h2>
